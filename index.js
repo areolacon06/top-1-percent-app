@@ -1,4 +1,9 @@
+import express from 'express';
 import { useState, useEffect, useRef } from "react";
+
+const app = express();
+// This line makes sure your app is allowed to talk to the internet
+app.use(express.json()); 
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CONFIG — Fill these with your real keys
@@ -925,3 +930,23 @@ export default function App(){
     </div>
   );
 }
+// This tells the browser: "When someone visits the home page, show the app"
+app.get('/', (req, res) => {
+  res.send(`
+    <html>
+      <head><title>Top 1% Engine</title></head>
+      <body style="background:#060606; color:white; font-family:sans-serif; display:flex; justify-content:center; align-items:center; height:100vh;">
+        <div style="text-align:center;">
+          <h1 style="color:#E8FF00;">ENGINE IS LIVE</h1>
+          <p>The Top 1% Content Engine is connected and running.</p>
+        </div>
+      </body>
+    </html>
+  `);
+});
+
+// This tells Render which "channel" to use to show your app
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log("Server is running on port " + port);
+});
