@@ -1,13 +1,16 @@
 {
   "name": "top-1-percent-app",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "npm install"
   },
   "dependencies": {
     "express": "^4.18.2",
-    "pg": "^8.11.0",
-    "dotenv": "^16.3.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "lucide-react": "latest",
+    "framer-motion": "latest"
   }
 }
